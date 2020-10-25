@@ -1,0 +1,9 @@
+Run this command in the terminal:
+
+cpplint $( find . -name \*.hpp -or -name \*.cpp | grep -vE -e "^./build/" -e "^./vendor/" -e "^./docs/" -e "^./results" )
+
+Output:
+
+Done processing ./listener.cpp
+Done processing ./talker.cpp
+
