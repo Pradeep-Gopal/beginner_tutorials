@@ -48,7 +48,7 @@ std::string default_msg = "The number of people who love robotics = ";
  */
 bool newMessage(beginner_tutorials::changeBaseString::Request &req, beginner_tutorials::changeBaseString::Response &res){
   default_msg = req.inputString;
-  ROS_WARN_STREAM("The user changed the string to");
+  ROS_WARN_STREAM("The user changed the string");
   res.newString = req.inputString;
   return true;
 }
