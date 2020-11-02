@@ -124,11 +124,10 @@ int main(int argc, char **argv) {
      */
     std_msgs::String msg;
 
-    std::stringstream ss;
-    ss << "The number of people who love robotics" << " = " << count;
-    msg.data = ss.str();
-
-    ROS_INFO("%s", msg.data.c_str());
+    std::string msg_data;
+    msg_data = "The number of people who love robotics = " + std::to_string(count);
+    msg.data = msg_data;
+    ROS_INFO_STREAM(msg_data);
 
     /**
      * The publish() function is how you send messages. The parameter
