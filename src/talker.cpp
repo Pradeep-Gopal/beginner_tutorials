@@ -80,11 +80,33 @@ int main(int argc, char **argv) {
 
   double my_ratee;
 
-
   /**
   * Getting the rate parameter "my_rate" from the parameter server
   */
   n.getParam("/my_rate", my_ratee);
+
+  if(my_ratee <= 500 && my_ratee > 0)
+  {
+    ROS_DEBUG_STREAM("Loop Rate Received from roslaunch argument is " << my_ratee);
+  }
+  else if(my_ratee > 500){
+    ROS_ERROR_STREAM("Loop Rate is too high");
+    ROS_WARN_STREAM("Setting the loop rate to default value of 10 Hz");
+    my_ratee = 10;
+  }
+  else if(my_ratee < 0){
+    ROS_ERROR_STREAM("Loop Rate cannot be negative");
+    ROS_WARN_STREAM("Setting the loop rate to default value of 10 Hz");
+    my_ratee = 10;
+  }
+  else if(my_ratee == 0){
+    ROS_FATAL_STREAM("Loop Rate cannot be zero");
+    ROS_WARN_STREAM("Setting the loop rate to default value of 10 Hz");
+    my_ratee = 10;
+  }
+
+
+
 
   /**
   * Setting the loop rate from the paramter "my_rate" from the parameter server
