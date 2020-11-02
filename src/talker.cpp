@@ -78,7 +78,18 @@ int main(int argc, char **argv) {
   ros::Publisher chatter_pub = n.advertise < std_msgs::String
       > ("chatter", 1000);
 
-  ros::Rate loop_rate(10);
+  double my_ratee;
+
+
+  /**
+  * Getting the rate parameter "my_rate" from the parameter server
+  */
+  n.getParam("/my_rate", my_ratee);
+
+  /**
+  * Setting the loop rate from the paramter "my_rate" from the parameter server
+  */
+  ros::Rate loop_rate(my_ratee);
 
   /**
    * A count of how many messages we have sent. This is used to create
