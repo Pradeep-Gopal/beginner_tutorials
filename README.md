@@ -8,7 +8,7 @@ Pradeep Gopal
 ## Overview
 
 This short tutorial on implementation of basic ROS C++ Publisher and Subscriber.
-ROS publisher sends the messages and ROS subscriber receives the messages.
+ROS publisher sends the messages and ROS subscriber subscribes and receives the messages.
 
 Talker (src/talker.cpp): Publisher
 Listener (src/listener.cpp): Subscriber
