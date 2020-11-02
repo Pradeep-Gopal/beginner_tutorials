@@ -13,6 +13,10 @@ ROS publisher sends the messages and ROS subscriber subscribes and receives the 
 Talker (src/talker.cpp): Publisher
 Listener (src/listener.cpp): Subscriber
 
+all_nodes.launch is the launch file which can be used to launch both talker and listener nodes.
+
+changeBaseString.srv is a service used to change the output string upon request by the user.
+
 ## Dependencies
 
 ROS Melodic should be installed on your computer (preferably Ubuntu 18.04).
@@ -62,6 +66,40 @@ git clone --recursive https://github.com/Pradeep-Gopal/beginner_tutorials
 
 ```
 
+## Steps to run the publisher and subscriber at once using launch file
+
+Make sure thte master is running and type the following command in a new terminal:
+```
+roslaunch beginner_tutorials all_nodes.launch
+
+```
+User can change the frequency at which the loop operates by the following command:
+```
+roslaunch beginner_tutorials nodes.launch my_rate:=<desired_frequency>
+
+Example: roslaunch beginner_tutorials nodes.launch my_rate:=4
+
+```
+Replace <desired_frequency> with the required number 
+
+## Service to change the output string
+
+User can change the output string message by running the following command in a new terminal:
+```
+rosservice call /changeString "text"
+
+Example: rosservice call /changeString "Hey There!"
+
+```
+
+## Logging
+
+To see the message log in real time, we use rqt_console GUI.
+Type the following command in a new terminal:
+```
+rqt_console
+```
+
 ## To terminate
 
 press Ctrl-C to terminate both the listener and the talker
@@ -79,4 +117,5 @@ cppcheck --enable=all --std=c++11 -I include/ --suppress=missingIncludeSystem $(
 cpplint $( find . -name \*.hpp -or -name \*.cpp | grep -vE -e "^./build/" -e "^./vendor/" -e "^./docs/" -e "^./results" )
 
 ```
+
 
