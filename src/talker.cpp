@@ -32,13 +32,14 @@
 #include <sstream>
 #include "ros/ros.h"
 #include "std_msgs/String.h"
+#include "../include/talker.hpp"
 #include "beginner_tutorials/changeBaseString.h"
 
 
 /**
  * Default String message which can be modified via service
  */
-std::string default_msg = "The number of people who love robotics = ";
+DefaultString def;
 
 /**
  * @brief  Callback function for changeString Service
@@ -47,7 +48,7 @@ std::string default_msg = "The number of people who love robotics = ";
  * @return bool
  */
 bool newMessage(beginner_tutorials::changeBaseString::Request &req, beginner_tutorials::changeBaseString::Response &res){
-  default_msg = req.inputString;
+  def.default_msg = req.inputString;
   ROS_WARN_STREAM("The user changed the string");
   res.newString = req.inputString;
   return true;
@@ -143,7 +144,7 @@ int main(int argc, char **argv) {
     std_msgs::String msg;
 
     std::string msg_data;
-    msg_data = default_msg + std::to_string(count);
+    msg_data = def.default_msg + std::to_string(count);
     msg.data = msg_data;
     ROS_INFO_STREAM(msg_data);
 
