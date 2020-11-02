@@ -35,7 +35,6 @@
 #include "../include/talker.hpp"
 #include "beginner_tutorials/changeBaseString.h"
 
-
 /**
  * Default String message which can be modified via service
  */
@@ -47,7 +46,8 @@ DefaultString def;
  * @param  res   Response by the service to the client
  * @return bool
  */
-bool newMessage(beginner_tutorials::changeBaseString::Request &req, beginner_tutorials::changeBaseString::Response &res){
+bool newMessage(beginner_tutorials::changeBaseString::Request &req,
+                beginner_tutorials::changeBaseString::Response &res) {
   def.default_msg = req.inputString;
   ROS_WARN_STREAM("The user changed the string");
   res.newString = req.inputString;
@@ -68,7 +68,7 @@ int main(int argc, char **argv) {
    * the easiest way to do it.  The third argument to init() is the name of the node.
    *
    * You must call one of the versions of ros::init() before using any other
-   * part of the ROS system.
+   * part of the ROSsystem.
    */
   ros::init(argc, argv, "talker");
 
@@ -103,33 +103,30 @@ int main(int argc, char **argv) {
   double my_ratee;
 
   /**
-  * Getting the rate parameter "my_rate" from the parameter server
-  */
+   * Getting the rate parameter "my_rate" from the parameter server
+   */
   n.getParam("/my_rate", my_ratee);
 
-  if(my_ratee <= 500 && my_ratee > 0)
-  {
-    ROS_DEBUG_STREAM("Loop Rate Received from roslaunch argument is " << my_ratee);
-  }
-  else if(my_ratee > 500){
+  if (my_ratee <= 500 && my_ratee > 0) {
+    ROS_DEBUG_STREAM("Loop Rate Received from "
+        "roslaunch argument is " << my_ratee);
+  } else if (my_ratee > 500) {
     ROS_ERROR_STREAM("Loop Rate is too high");
     ROS_WARN_STREAM("Setting the loop rate to default value of 10 Hz");
     my_ratee = 10;
-  }
-  else if(my_ratee < 0){
+  } else if (my_ratee < 0) {
     ROS_ERROR_STREAM("Loop Rate cannot be negative");
     ROS_WARN_STREAM("Setting the loop rate to default value of 10 Hz");
     my_ratee = 10;
-  }
-  else if(my_ratee == 0){
+  } else if (my_ratee == 0) {
     ROS_FATAL_STREAM("Loop Rate cannot be zero");
     ROS_WARN_STREAM("Setting the loop rate to default value of 10 Hz");
     my_ratee = 10;
   }
 
   /**
-  * Setting the loop rate from the paramter "my_rate" from the parameter server
-  */
+   * Setting the loop rate from the paramter "my_rate" from the parameter server
+   */
   ros::Rate loop_rate(my_ratee);
 
   /**

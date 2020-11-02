@@ -80,7 +80,7 @@ int main(int argc, char **argv) {
    * The second parameter to the subscribe() function is the size of the message
    * queue.  If messages are arriving faster than they are being processed, this
    * is the number of messages that will be buffered up before beginning to throw
-   * away the oldest ones.
+   * away oldest ones.
    */
   ros::Subscriber sub = n.subscribe("chatter", 1000, chatterCallback);
 
