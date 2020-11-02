@@ -1,0 +1,6 @@
+# request
+string inputString
+
+---
+# response 
+string newString 

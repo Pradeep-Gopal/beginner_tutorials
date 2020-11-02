@@ -32,6 +32,26 @@
 #include <sstream>
 #include "ros/ros.h"
 #include "std_msgs/String.h"
+#include "beginner_tutorials/changeBaseString.h"
+
+
+/**
+ * Default String message which can be modified via service
+ */
+std::string default_msg = "The number of people who love robotics = ";
+
+/**
+ * @brief  Callback function for changeString Service
+ * @param  req   Request data sent to service
+ * @param  res   Response by the service to the client
+ * @return bool
+ */
+bool newMessage(beginner_tutorials::changeBaseString::Request &req, beginner_tutorials::changeBaseString::Response &res){
+  default_msg = req.inputString;
+  ROS_WARN_STREAM("The user changed the string to");
+  res.newString = req.inputString;
+  return true;
+}
 
 /**
  * @brief main function
@@ -77,6 +97,7 @@ int main(int argc, char **argv) {
    */
   ros::Publisher chatter_pub = n.advertise < std_msgs::String
       > ("chatter", 1000);
+  auto server = n.advertiseService("changeBaseString", newMessage);
 
   double my_ratee;
 
@@ -105,9 +126,6 @@ int main(int argc, char **argv) {
     my_ratee = 10;
   }
 
-
-
-
   /**
   * Setting the loop rate from the paramter "my_rate" from the parameter server
   */
@@ -125,7 +143,7 @@ int main(int argc, char **argv) {
     std_msgs::String msg;
 
     std::string msg_data;
-    msg_data = "The number of people who love robotics = " + std::to_string(count);
+    msg_data = default_msg + std::to_string(count);
     msg.data = msg_data;
     ROS_INFO_STREAM(msg_data);
 
