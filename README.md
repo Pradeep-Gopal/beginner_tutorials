@@ -86,9 +86,9 @@ Replace <desired_frequency> with the required number
 
 User can change the output string message by running the following command in a new terminal:
 ```
-rosservice call /changeString "text"
+rosservice call /changeBaseString "text"
 
-Example: rosservice call /changeString "Hey There!"
+Example: rosservice call /changeBaseString "Hey There!"
 
 ```
 
