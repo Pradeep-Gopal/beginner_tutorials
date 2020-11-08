@@ -1,5 +1,6 @@
 <launch>
     <arg name="my_rate" default="2" doc="my_rate"/>
+    <arg name="rosBagEnable" default="false" doc="rosBagEnable"/>
     <param name="my_rate" value="$(arg my_rate)"/>
     <node pkg="beginner_tutorials"
           type="talker"
@@ -10,4 +11,11 @@
           type="listener"
           name="listener_subscriber"
           output="screen"/>
+
+    <node pkg="rosbag"
+          name="record"
+          type="record"
+          args="-a -O rostopics_bag.bag"
+          if="$(arg rosBagEnable)"
+          />
 </launch>
