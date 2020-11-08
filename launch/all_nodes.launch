@@ -15,7 +15,7 @@
     <node pkg="rosbag"
           name="record"
           type="record"
-          args="-a -O rostopics_bag.bag"
+          args="-a -O $(find beginner_tutorials)/results/rostopics_bag"
           if="$(arg rosBagEnable)"
           />
 </launch>
