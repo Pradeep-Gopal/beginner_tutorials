@@ -178,6 +178,11 @@ The info on rosbag file can be seen using the following command
 cd ~/catkin_ws/src/beginner_tutorials/results
 rosbag info rostopics_bag.bag
 ```
+<p>Following image shows a demo of rosbag files played on listener</p>
+<p align="center">
+<img src="results/rosbagOutput.png" width="70%" height="70%">
+</p>
+
 
 ## Logging
 
