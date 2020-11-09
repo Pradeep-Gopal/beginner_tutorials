@@ -1,5 +1,5 @@
 # beginner_tutorials
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/Pradeep-Gopal/beginner_tutorials/blob/master/LICENSE)
 
 ## Author
 
@@ -91,6 +91,54 @@ rosservice call /changeBaseString "text"
 Example: rosservice call /changeBaseString "Hey There!"
 
 ```
+
+## To Run ROSTEST
+
+### Method 1 using catkin
+The level 2 Integration tests can be run using the following commands-
+
+Open a terminal to run the test using catkin: 
+```
+cd ~/catkin_ws
+source ./devel/setup.bash
+catkin_make run_tests_beginner_tutorials
+
+```
+
+<p>Following image shows a demo of ROSTEST in action using catkin</p>
+<p align="center">
+<img src="results/testsOutput.png" width="70%" height="70%">
+</p>
+
+
+### Method 2 using testTalkerNode node
+
+In first Terminal, 
+```
+roscore
+```
+
+In second terminal,
+```
+cd ~/catkin_ws
+source ./devel/setup.bash
+rosrun beginner_tutorials talker
+
+```
+
+In third terminal,
+```
+cd ~/catkin_ws
+source ./devel/setup.bash
+rosrun beginner_tutorials testTalkerNode
+
+```
+
+<p>Following image shows a demo of ROSTEST in action using testTalkerNode node</p>
+<p align="center">
+<img src="results/Rostest.png" width="70%" height="70%">
+</p>
+
 
 ## Logging
 
