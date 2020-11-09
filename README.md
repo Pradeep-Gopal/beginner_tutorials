@@ -139,6 +139,45 @@ rosrun beginner_tutorials testTalkerNode
 <img src="results/Rostest.png" width="70%" height="70%">
 </p>
 
+## Steps to record and play a Rosbag file
+ROSBag recording can be done using the following command-
+Open a terminal to run the launch file: 
+```
+cd ~/catkin_ws
+source ./devel/setup.bash
+roslaunch beginner_tutorials all_nodes.launch rosBagEnable:=true
+```
+When the flag(default = false) is true, it will record until SIGINT(ctrl+c) is pressed.
+
+Following are the steps to examine the recorded bag file
+1. Open a terminal to run roscore: 
+```
+cd ~/catkin_ws
+source ./devel/setup.bash
+roscore
+```
+Ensure if roscore is running in the terminal. For any issues check [ROS Troubleshoot](http://wiki.ros.org/ROS/Troubleshooting)
+
+2. Open a new terminal to setup the Listener Node: 
+```
+cd ~/catkin_ws
+source ./devel/setup.bash
+rosrun beginner_tutorials listener
+```
+No output will be displayed, until the rosbag is played.
+
+3. Open a new terminal to play the bag file:
+```
+cd ~/catkin_ws
+source ./devel/setup.bash
+cd src/beginner_tutorials/results
+rosbag play rostopics_bag.bag
+```
+The info on rosbag file can be seen using the following command
+```
+cd ~/catkin_ws/src/beginner_tutorials/results
+rosbag info rostopics_bag.bag
+```
 
 ## Logging
 
