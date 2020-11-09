@@ -183,6 +183,35 @@ rosbag info rostopics_bag.bag
 <img src="results/rosbagOutput.png" width="70%" height="70%">
 </p>
 
+## To inspect TF frames
+To inspect the TF frames being broadcasted by the talker file, run the following commands.
+
+1. Open a terminal to run the launch file: 
+```
+cd ~/catkin_ws
+source ./devel/setup.bash
+roslaunch beginner_tutorials all_nodes.launch
+```
+
+2. Open a new terminal to inspect the TF frames being published: 
+```
+cd ~/catkin_ws
+source ./devel/setup.bash
+rosrun tf tf_echo /world /talk
+```
+
+<p>The output will be something like this</p>
+<p align="center">
+<img src="results/tf_echo.png" width="70%" height="70%">
+</p>
+
+3. To check the tf_tree run the following command in a new terminal:
+```
+cd ~/catkin_ws
+source ./devel/setup.bash
+rosrun rqt_tf_tree rqt_tf_tree
+```
+The TF tree demo output can be accessed from the results directory (frames.pdf)
 
 ## Logging
 
