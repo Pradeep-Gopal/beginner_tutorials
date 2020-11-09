@@ -59,7 +59,7 @@ bool newMessage(beginner_tutorials::changeBaseString::Request &req,
  * @param  none
  * @return none
  */
-void tfBroadcaster(){
+void tfBroadcaster() {
     static tf::TransformBroadcaster br;
     tf::Transform transform;
     transform.setOrigin(tf::Vector3(cos(ros::Time::now().toSec()),
@@ -170,7 +170,8 @@ int main(int argc, char **argv) {
      */
     chatter_pub.publish(msg);
 
-    // Calling the Broadcaster Function to broadcast a tf frame called /talk with parent /world
+    // Calling the Broadcaster Function to broadcast a tf frame called /talk
+    // with parent /world
     tfBroadcaster();
 
     ros::spinOnce();

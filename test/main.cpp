@@ -38,7 +38,7 @@
  * @param argv
  * @return 0 when tests run successfully
  */
-int main(int argc, char **argv){
+int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
     ros::init(argc, argv, "tester");
     ros::NodeHandle nh;

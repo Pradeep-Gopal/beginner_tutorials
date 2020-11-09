@@ -6,9 +6,12 @@ Output:
 
 Done processing ./include/talker.hpp
 Done processing ./src/listener.cpp
-./src/talker.cpp:50:  Is this a non-const reference? If so, make const or use a pointer: beginner_tutorials::changeBaseString::Request &req  [runtime/references] [2]
-./src/talker.cpp:51:  Is this a non-const reference? If so, make const or use a pointer: beginner_tutorials::changeBaseString::Response &res  [runtime/references] [2]
+./src/talker.cpp:49:  Is this a non-const reference? If so, make const or use a pointer: beginner_tutorials::changeBaseString::Request &req  [runtime/references] [2]
+./src/talker.cpp:50:  Is this a non-const reference? If so, make const or use a pointer: beginner_tutorials::changeBaseString::Response &res  [runtime/references] [2]
 Done processing ./src/talker.cpp
+Done processing ./test/main.cpp
+Done processing ./test/testTalkerNode.cpp
 Total errors found: 2
+
 
 
